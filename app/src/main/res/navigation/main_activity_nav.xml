@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_activity_nav"
+    app:startDestination="@id/anasayfaFragment">
+
+    <fragment
+        android:id="@+id/anasayfaFragment"
+        android:name="com.ibrahimsolak.navigationcomponentkullanimiodev4.AnasayfaFragment"
+        android:label="fragment_anasayfa"
+        tools:layout="@layout/fragment_anasayfa" >
+        <action
+            android:id="@+id/gecisSatınAlma"
+            app:destination="@id/satinAlFragment" />
+        <action
+            android:id="@+id/gecisKirala"
+            app:destination="@id/kiralaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/satinAlFragment"
+        android:name="com.ibrahimsolak.navigationcomponentkullanimiodev4.SatinAlFragment"
+        android:label="fragment_satin_al"
+        tools:layout="@layout/fragment_satin_al" >
+        <argument
+            android:name="motor"
+            app:argType="com.ibrahimsolak.navigationcomponentkullanimiodev4.Motor" />
+        <argument
+            android:name="fiyatSatinAl"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <action
+            android:id="@+id/gecisIndirim"
+            app:destination="@id/indirimFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/indirimFragment"
+        android:name="com.ibrahimsolak.navigationcomponentkullanimiodev4.IndirimFragment"
+        android:label="fragment_indirim"
+        tools:layout="@layout/fragment_indirim" >
+        <argument
+            android:name="fiyatSatinAlma"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <action
+            android:id="@+id/gecisOdeme1"
+            app:destination="@id/odemeFragment"
+            app:popUpTo="@id/satinAlFragment"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="motor"
+            app:argType="com.ibrahimsolak.navigationcomponentkullanimiodev4.Motor" />
+    </fragment>
+    <fragment
+        android:id="@+id/kiralaFragment"
+        android:name="com.ibrahimsolak.navigationcomponentkullanimiodev4.KiralaFragment"
+        android:label="fragment_kirala"
+        tools:layout="@layout/fragment_kirala" >
+        <argument
+            android:name="motor"
+            app:argType="com.ibrahimsolak.navigationcomponentkullanimiodev4.Motor" />
+        <argument
+            android:name="fiyatKirala"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <action
+            android:id="@+id/gecisOdeme2"
+            app:destination="@id/odemeFragment"
+            app:popUpTo="@id/kiralaFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/odemeFragment"
+        android:name="com.ibrahimsolak.navigationcomponentkullanimiodev4.OdemeFragment"
+        android:label="fragment_odeme"
+        tools:layout="@layout/fragment_odeme" >
+        <argument
+            android:name="fiyatOdeme"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <argument
+            android:name="motor"
+            app:argType="com.ibrahimsolak.navigationcomponentkullanimiodev4.Motor" />
+    </fragment>
+</navigation>
