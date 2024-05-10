@@ -15,13 +15,13 @@ class AnasayfaFragment : Fragment() {
         binding = FragmentAnasayfaBinding.inflate(inflater,container, false)
 
         binding.buttonSatinAlma.setOnClickListener(){
-            val motor = Motor("Ducati","Panigale V2",2022)
+            val motor = Motor("Ducati","Panigale V2",2016)
             val gecisSatınAlma = AnasayfaFragmentDirections.gecisSatınAlma(motor = motor,20000)
             Navigation.findNavController(it).navigate(gecisSatınAlma)
         }
 
         binding.buttonKirala.setOnClickListener(){
-            val motor = Motor("Ducati","Panigale V2",2022)
+            val motor = Motor("Ducati","Panigale V2",2016)
             val gecisKirala = AnasayfaFragmentDirections.gecisKirala(motor = motor,200)
             Navigation.findNavController(it).navigate(gecisKirala)
         }
